@@ -6,11 +6,11 @@ Creating the business logic of the Board Game, 'Tic Tac Toe!'
 
 ```As a player,
 So I can play 'Tic Tac Toe',
-I need a 3x3 grid to play```
+I need a 3x3 grid to play on```
 
 ```As a player,
 So I can play an opponent,
-We need to take turns to place marks on the grid```
+We need to take turns to place 'X' or 'O' on the grid```
 
 ```As a player,
 So there can be a Winner,
