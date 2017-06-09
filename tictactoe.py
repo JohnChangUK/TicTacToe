@@ -2,7 +2,7 @@ import os
 import time
 import random
 
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",]
+board = ["", " ", " ", " ", " ", " ", " ", " ", " ", " ",]
 
 def print_board():
     print "   |   |   "
@@ -21,6 +21,7 @@ while True:
     os.system("Clear")
     print_board()
 
+    # Get player X input
     choice = raw_input("Please choose an empty space for X. ")
     choice = int(choice)
 
@@ -44,3 +45,52 @@ while True:
         print_board()
         print "X Wins! Congrats!"
         break
+
+    os.system("Clear")
+    print_board()
+
+    # Check for a Tie (Board full with no Winning Matches)
+    isFull = True
+    if " " in board:
+        isFull = False
+
+    # If board is full, display Message
+    if isFull:
+        print "It's a Tie!"
+        break
+
+    # Get player O input
+    choice = raw_input("Please choose an empty space for O. ")
+    choice = int(choice)
+
+    # Check to see if the space is empty first
+    if board[choice] == " ":
+        board[choice] = "O"
+    else:
+        print "Sorry, that space is taken!"
+        time.sleep(1)
+
+    # Check for O win
+    if (board[1] == "O" and board[2] == "O" and board[3] == "O") or \
+        (board[4] == "O" and board[5] == "O" and board[6] == "O") or \
+        (board[7] == "O" and board[8] == "O" and board[9] == "O") or \
+        (board[1] == "O" and board[4] == "O" and board[7] == "O") or \
+        (board[2] == "O" and board[5] == "O" and board[8] == "O") or \
+        (board[3] == "O" and board[6] == "O" and board[9] == "O") or \
+        (board[1] == "O" and board[5] == "O" and board[9] == "O") or \
+        (board[3] == "O" and board[5] == "O" and board[7] == "O"):
+        os.system("Clear")
+        print_board()
+        print "O Wins! Congrats!"
+        break
+
+    # Check for a Tie (Board full with no Winning Matches)
+    isFull = True
+    if " " in board:
+        isFull = False
+
+    # If board is full, display Message
+    if isFull:
+        print "It's a Tie!"
+        break
+
