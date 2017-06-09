@@ -44,7 +44,7 @@ def get_computer_move(board, player):
     else:
         while True:
             move = random.randint(1, 9)
-            # If the move is Blank, so ahead and return, otherwise try again
+            # If the move NUMBER is Blank, so ahead and return, otherwise try again
             if board[move] == " ":
                 return move
                 break
