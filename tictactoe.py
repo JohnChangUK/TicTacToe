@@ -36,6 +36,19 @@ def is_board_full(board):
     else:
         return True
 
+def get_computer_move(board, player):
+
+    # If the center square is empty, choose that
+    if board[5] == " ":
+        return 5
+    else:
+        while True:
+            move = random.randint(1, 9)
+            # If the move is Blank, so ahead and return, otherwise try again
+            if board[move] == " ":
+                return move
+                break
+
 while True:
     os.system("Clear")
     print_board()
@@ -69,8 +82,7 @@ while True:
    
 
     # Get player O input
-    choice = raw_input("Please choose an empty space for O. ")
-    choice = int(choice)
+    choice = get_computer_move(board, "O")
 
     # Check to see if the space is empty first
     if board[choice] == " ":
