@@ -37,6 +37,15 @@ def is_board_full(board):
         return True
 
 def get_computer_move(board, player):
+    # Check all the columns for a Win
+    for i in [1, 2, 3]:
+        if board[i] == player and board[i+3] == player and board[i+6] == " ":
+            return i+6
+        if board[i+3] == player and board[i+6] == player and board[i] == " ":
+            return i
+        if board[i] == player and board[i+6] == player and board[i+3] == " ":
+            return i+3
+
 
     # If the center square is empty, choose that
     if board[5] == " ":
