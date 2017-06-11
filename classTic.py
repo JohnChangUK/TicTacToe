@@ -14,7 +14,9 @@ class Board():
         print (" %s | %s | %s " %(self.cells[7], self.cells[8], self.cells[9]))
 
     def update_cell(self, cell_no, player):
-        self.cells[cell_no] = player
+        if self.cells[cell_no] == " ":
+            self.cells[cell_no] = player
+
 
 board = Board()
 board.display()
@@ -38,3 +40,12 @@ while True:
 
     # Updating Board
     board.update_cell(x_choice, "X")
+
+    # Refresh the Screen after first input
+    refresh_screen()
+
+    # Get O input
+    o_choice = int(raw_input("\nO) Please choose 1 - 9. > "))
+
+    # Updating Board
+    board.update_cell(o_choice, "O")
